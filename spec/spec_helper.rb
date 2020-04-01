@@ -18,6 +18,10 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  config.around do |example|
+    DB.transaction(rollback: :always, auto_savepoint: true) { example.run }
+  end
+
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.order = :random
   Kernel.srand config.seed
