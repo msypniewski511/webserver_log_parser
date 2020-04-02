@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'webserver_log_parser'
+
 # Entrypoint for arguments parsing and logic executing
 class Cli
   def initialize(argv = [])

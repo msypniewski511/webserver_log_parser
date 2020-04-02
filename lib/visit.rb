@@ -6,9 +6,11 @@ require_relative '../db_connection'
 class Visit < Sequel::Model
   plugin :validation_helpers
 
+  ATTRS = %i[path visitor_identifier].freeze
+
   def validate
     super
 
-    validates_presence %i[path visitor_identifier]
+    validates_presence ATTRS
   end
 end

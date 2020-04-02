@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'visit'
+
 describe Visit do
   subject(:visit) do
     described_class.new(path: '/help_page/1',

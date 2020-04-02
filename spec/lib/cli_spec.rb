@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'cli'
+
 shared_examples 'Cli test' do |description, args|
   subject(:cli_object) { described_class.new(args) }
 
@@ -43,4 +45,3 @@ describe Cli do
     end
   end
 end
-

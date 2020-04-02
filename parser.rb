@@ -4,6 +4,6 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
-require_all 'lib'
+require_relative 'lib/cli'
 
 Cli.new(ARGV).call

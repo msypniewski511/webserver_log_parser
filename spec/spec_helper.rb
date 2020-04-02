@@ -3,7 +3,10 @@
 require 'simplecov'
 SimpleCov.start
 
-require_relative '../parser'
+require 'bundler/setup'
+Bundler.require(:default)
+
+require_relative '../db_connection'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
