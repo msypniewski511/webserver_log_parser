@@ -2,7 +2,6 @@
 
 source 'https://rubygems.org' do
   gem 'pry', '~> 0.13.0'
-  gem 'require_all', '~> 3.0'
   gem 'sequel', '~> 5.30'
   gem 'sqlite3', '~> 1.4', '>= 1.4.2'
 
