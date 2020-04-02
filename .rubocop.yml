@@ -1,5 +1,12 @@
 require: rubocop-rspec
 
+RSpec/DescribeClass:
+  Enabled: true
+  Exclude:
+    # It's not a specific class/method unit test
+    # but a functionality test
+    - 'spec/features/parser_spec.rb'
+
 Style/HashEachMethods:
   Enabled: true
 
