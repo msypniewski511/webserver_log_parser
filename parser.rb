@@ -6,4 +6,4 @@ Bundler.require(:default)
 
 require_all 'lib'
 
-WebserverLogParser.new(ARGV).call
+Cli.new(ARGV).call
