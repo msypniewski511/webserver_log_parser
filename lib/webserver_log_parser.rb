@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-# Entrypoint for arguments parsing and logic executing
+# Reading and storing data
 class WebserverLogParser
-  def initialize(args)
-    @args = args
+  def initialize(file)
+    @file = file
   end
 
   def call
-    args
+    puts file.read
   end
 
   private
 
-  attr_reader :args
+  attr_reader :file
 end

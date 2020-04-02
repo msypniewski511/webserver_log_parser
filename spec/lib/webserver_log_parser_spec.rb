@@ -2,8 +2,14 @@
 
 describe WebserverLogParser do
   describe '#call' do
-    subject { described_class.new('hi').call }
+    subject(:object) { described_class.new(file) }
 
-    it { is_expected.to eq('hi') }
+    let(:file_path) { File.expand_path('../fixtures/single.log', __dir__) }
+    let(:file) { File.open(file_path, 'r') }
+    let(:expectation) { "/help_page/1 126.318.035.038\n" }
+
+    it 'reads the file' do
+      expect { object.call }.to output(expectation).to_stdout
+    end
   end
 end
