@@ -33,11 +33,12 @@ describe Cli do
     end
 
     context 'when valid filepath is provided' do
-      let(:file_content) { 'foo' }
-      let(:expectation) { file_content }
-      let(:file) { instance_double(File, read: file_content) }
+      let(:file_content) { 'foo bar' }
+      let(:expectation) { 'foo, bar' }
+      let(:file) { instance_double(File) }
 
       before do
+        allow(file).to receive(:each_line).and_yield(file_content)
         allow(File).to receive(:open).and_return(file)
       end
 

@@ -28,7 +28,7 @@ describe 'parser' do
   end
 
   context 'when valid filepath is provided' do
-    let(:expectation) { '/help_page/1 126.318.035.038' }
+    let(:expectation) { '/help_page/1, 126.318.035.038' }
     let(:file_path) { File.expand_path('../fixtures/single.log', __dir__) }
     let(:command) { "ruby parser.rb #{file_path}" }
 

@@ -4,7 +4,7 @@ require 'webserver_log_parser'
 
 describe WebserverLogParser do
   describe '#call' do
-    let(:object) { described_class.new(file_handle) }
+    subject(:object) { described_class.new(file_handle) }
 
     let(:file_handle) { File.open(file_path, 'r') }
 
