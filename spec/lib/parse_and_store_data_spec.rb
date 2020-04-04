@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'webserver_log_parser'
+require 'parse_and_store_data'
 
-describe WebserverLogParser do
+describe ParseAndStoreData do
   describe '#call' do
     subject(:object) { described_class.new(file_handle) }
 

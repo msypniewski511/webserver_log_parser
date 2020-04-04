@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require_relative 'visit'
+require_relative 'fetch_and_print_data'
 
 # Reading a file and storing data
-class WebserverLogParser
+class ParseAndStoreData
   def initialize(file)
     @file = file
     @invalid_entries = []
@@ -15,8 +16,7 @@ class WebserverLogParser
       parse_and_store_data(line.split)
     end
 
-    # temporarly prints Visit collection from here
-    Visit.each { |visit| puts "#{visit.path}, #{visit.visitor_identifier}" }
+    FetchAndPrintData.new(model_klass, invalid_entries).call
   end
 
   private
@@ -25,11 +25,15 @@ class WebserverLogParser
   attr_accessor :invalid_entries
 
   def parse_and_store_data(arr)
-    visit = Visit.new(Visit::ATTRS.zip(arr))
+    visit = model_klass.new(model_klass::ATTRS.zip(arr))
     visit.valid? ? visit.save : log_invalid_entry(arr, visit)
   end
 
   def log_invalid_entry(arr, visit)
-    invalid_entries << arr.push(visit.errors.full_messages)
+    invalid_entries << visit.errors.full_messages.concat(arr)
+  end
+
+  def model_klass
+    Visit
   end
 end

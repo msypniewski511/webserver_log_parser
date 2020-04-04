@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'webserver_log_parser'
+require_relative 'parse_and_store_data'
 
 # Entrypoint for arguments parsing and logic executing
 class Cli
@@ -12,7 +12,7 @@ class Cli
     if argv.empty?
       puts 'Please provide a file location to get the webserver log report.'
     else
-      parse_webserver_log
+      ParseAndStoreData.new(file).call
     end
   rescue Errno::ENOENT
     puts "Could not open the file #{argv[0]}. Please verify the file location."
@@ -24,9 +24,5 @@ class Cli
 
   def file
     File.open(argv[0], 'r')
-  end
-
-  def parse_webserver_log
-    WebserverLogParser.new(file).call
   end
 end
