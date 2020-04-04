@@ -1,5 +1,11 @@
 require: rubocop-rspec
 
+Metrics/BlockLength:
+  Enabled: true
+  ExcludedMethods:
+    # Exclude test cases
+    - 'describe'
+
 RSpec/DescribeClass:
   Enabled: true
   Exclude:
