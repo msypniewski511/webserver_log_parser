@@ -6,6 +6,7 @@ source 'https://rubygems.org' do
   gem 'sqlite3', '~> 1.4', '>= 1.4.2'
 
   group :test do
+    gem 'factory_bot'
     gem 'rspec', '~> 3.9'
     gem 'rubocop', '~> 0.80.1'
     gem 'rubocop-rspec', '~> 1.38', '>= 1.38.1'
