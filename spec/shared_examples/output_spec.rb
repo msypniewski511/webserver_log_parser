@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples 'Output test' do |description|
+RSpec.shared_examples 'Output test' do |description|
   it description do
     expect do
       object.call

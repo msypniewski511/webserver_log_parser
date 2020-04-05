@@ -17,5 +17,16 @@ describe ParseAndStoreData do
         expect(Visit.get(Visit::ATTRS)).to eq(expectation)
       end
     end
+
+    context 'when file containt invalid data' do
+      let(:file_path) do
+        File.expand_path('../fixtures/invalid.log', __dir__)
+      end
+
+      it 'does not store anything' do
+        object.call
+        expect(Visit.count).to be_zero
+      end
+    end
   end
 end
