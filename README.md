@@ -78,7 +78,7 @@ Implemented solution is based on in memory Sqlite database and Sequel, a lightwe
 ### Readability
 The code readability is very important. It makes it easy, logical and clearly visible. It's critical for any sotware applications in terms of maintenance. The script was implemented with following steps:
 
-* The script adopt RuboCop Style Guide. Ruby Guide standards of indentation and formatting are followed
+* The script adopts RuboCop Style Guide. Ruby Guide standards of indentation and formatting are followed
 * All methods operate on the same level of abstraction(Single Level of Abstraction Principle)
 * Methods and variables are maningful
 * Comments are present where needed
