@@ -5,7 +5,7 @@ The script takes a log file and returns:
 1. List of webpages with most unique page views also ordered
 1. (Improvement) List of invalid entries
 
-#Requirements
+# Requirements
 
 ### Ruby version
 Ruby 2.6.3
