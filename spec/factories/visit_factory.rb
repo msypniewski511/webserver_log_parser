@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :visit do
     # Sequel model save! method is not defined
+    # this overwrites factory `create` to use Sequel `save` instead
     to_create(&:save)
 
     path { 'a' }
