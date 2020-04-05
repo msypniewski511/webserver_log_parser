@@ -11,18 +11,25 @@ class ParseAndStoreData
   end
 
   def call
-    file.each_line do |line|
-      # split on whitespace is the default
-      parse_and_store_data(line.split)
-    end
-
-    FetchAndPrintData.new(model_klass, invalid_entries).call
+    read_and_parse_file
+    fetch_and_print_data
   end
 
   private
 
   attr_reader :file
   attr_accessor :invalid_entries
+
+  def read_and_parse_file
+    file.each_line do |line|
+      # split on whitespace is the default
+      parse_and_store_data(line.split)
+    end
+  end
+
+  def fetch_and_print_data
+    FetchAndPrintData.new(model_klass, invalid_entries).call
+  end
 
   def parse_and_store_data(arr)
     visit = model_klass.new(model_klass::ATTRS.zip(arr))
